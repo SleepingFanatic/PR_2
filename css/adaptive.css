@@ -1,1 +1,44 @@
+/* Анимация появления */
+@keyframes fadeInNano {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 
+section {
+  opacity: 0;
+  animation: fadeInNano 0.8s var(--transition) forwards;
+}
+section:nth-child(1) { animation-delay: 0.1s; }
+section:nth-child(2) { animation-delay: 0.2s; }
+section:nth-child(3) { animation-delay: 0.3s; }
+section:nth-child(4) { animation-delay: 0.4s; }
+section:nth-child(5) { animation-delay: 0.5s; }
+section:nth-child(6) { animation-delay: 0.6s; }
+section:nth-child(7) { animation-delay: 0.7s; }
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  h1 { font-size: clamp(1.875rem, 8vw, 2.75rem); }
+  h2 { font-size: clamp(1.375rem, 6vw, 2rem); }
+  section {
+    padding: calc(var(--spacing-unit) * 4);
+  }
+  nav a {
+    padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 2.5);
+    font-size: 0.95rem;
+  }
+}
+
+/* Улучшение читаемости */
+@media (prefers-contrast: high) {
+  :root {
+    --text-color: #ffffff;
+    --background-color: #000000;
+  }
+}
